@@ -199,7 +199,7 @@ else:
             saved_initial = meta.get("initial_premium") if meta else 0.0
             # build a temporary rolls_df including existing saved rolls + this unsaved roll
             tmp = rolls_df.copy()
-            tmp = tmp.append({
+          tmp = tmp.append({
                 "roll": (tmp["roll"].max() if len(tmp) else 0) + 1,
                 "buyback": buy_back,
                 "new_strike": new_strike,
@@ -270,3 +270,4 @@ else:
 
 st.markdown("---")
 st.caption("Data stored locally in the app container (data folder). Use Export/Import if you want persistence across redeploys.")
+
