@@ -96,7 +96,7 @@ if initial:
         st.session_state["tickers"].pop(ticker, None)
         st.session_state["unsaved"].pop(ticker, None)
         st.success(f"Deleted data for {ticker}. Reload the page or enter ticker again to create fresh initial.")
-        st.experimental_rerun()
+      st.rerun()
 else:
     # allow user to set initial values and save
     c1, c2, c3 = st.columns(3)
@@ -113,7 +113,7 @@ else:
             "initial_premium": float(initial_prem_input)
         })
         st.success(f"Initial saved for {ticker}. Press Load/Refresh to refresh UI.")
-        st.experimental_rerun()
+     st.rerun()
 
 st.markdown("---")
 
@@ -123,7 +123,7 @@ col_r1, col_r2 = st.columns([1,1])
 with col_r1:
     if st.button("New Roll", key=f"newroll_{ticker}"):
         add_unsaved_roll(ticker)
-        st.experimental_rerun()
+         st.rerun()
 with col_r2:
     st.write("")  # placeholder for spacing
 
@@ -180,7 +180,7 @@ else:
                 # remove the saved unsaved block
                 st.session_state["unsaved"][ticker].pop(idx)
                 st.success("Roll saved and added to table.")
-                st.experimental_rerun()
+                 st.rerun()
 
 st.markdown("---")
 
@@ -283,7 +283,8 @@ with col_e2:
                 }
                 st.session_state["tickers"][tk]["rolls"].append(roll_r)
             st.success("Imported CSV and merged into session data.")
-            st.experimental_rerun()
+             st.rerun()
         except Exception as e:
             st.error("Failed to import CSV: " + str(e))
+
 
