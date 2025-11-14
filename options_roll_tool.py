@@ -68,7 +68,7 @@ with col_t1:
 with col_t2:
     if st.button("Load / Refresh"):
         # no-op other than refresh — session_state persists
-        st.experimental_rerun()
+       st.rerun()
 
 if not ticker:
     st.info("Type a ticker to begin (or click Load/Refresh if you already saved data).")
@@ -286,3 +286,4 @@ with col_e2:
             st.experimental_rerun()
         except Exception as e:
             st.error("Failed to import CSV: " + str(e))
+
